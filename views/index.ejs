@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+    <link rel='stylesheet' href='/css/main.css'>
+    <link rel="shortcut icon" href="https://elliot.sirv.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <script defer src='/js/app.js'></script>
+</head>
+<body>
+    <div class="con" id="users">
+        <header>
+            <h1>ROADMAP</h1>
+        </header>
+        <div class="searchbox">
+            <input class="search" placeholder="Search..." autofocus autocomplete="off" type="search" id="search" />
+            <span class="material-icons">search</span>
+        </div>
+        <ul class="contents list">
+            <li class="box">
+                <button class="csr material-icons">add_circle_outline</button>
+                <h2 class="name">ADD NEW</h2>
+            </li>
+            <% if (data && data !== '') { %>
+                <% data.proj.forEach(el => { %>
+                <li class="box" data-id="<%= el.title %>">
+                    <h3 class="name"><%= el.title %> </h3>
+                    <h5 class="tasks"><%= el.tasks.length %></h5>
+                    <span class="cross material-icons">delete</span>
+                </li>
+                <% }) %>
+            <% } %>
+        </ul>
+            <div id="addnew" class="addnew">
+                <form id="af" action="/addnew" method="POST">
+                    <input autocomplete="off" autofocus placeholder="TITLE" type="text" name="new" id="new">
+                    <button id="addb" type="submit">ADD<span class="material-icons">add</span></button>
+                    <span class="close material-icons">close</span>
+                </form>
+            </div>
+    </div>
+</body>
+</html>

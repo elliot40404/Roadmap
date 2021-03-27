@@ -1,0 +1,24 @@
+{
+  "name": "proj-10536",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js",
+    "sass": "sass --watch public/css/main.scss:public/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nanoid": "^3.1.22"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7",
+    "sass": "^1.32.8"
+  }
+}

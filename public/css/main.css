@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+.con header {
+  height: 10vh;
+  font-size: 30px;
+}
+.con .searchbox {
+  height: 10vh;
+  position: relative;
+}
+.con .contents {
+  min-height: 80vh;
+  width: 100vw;
+  background: red;
+}
+
+.searchbox {
+  width: 350px;
+  height: 40px;
+}
+.searchbox input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 100%;
+  border-radius: 36px;
+  padding: 0px 40px;
+  font-family: inherit;
+  border: 1px solid black;
+  font-weight: 600;
+  outline: none;
+}
+.searchbox span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.contents {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: 200px;
+  gap: 30px;
+  padding: 50px 20px;
+}
+.contents .box {
+  background: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 36px;
+  position: relative;
+}
+.contents .box button {
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 80px;
+}
+
+.box h3 {
+  cursor: pointer;
+}
+
+.cross {
+  color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.csr {
+  cursor: pointer;
+}
+
+.addnew {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+.addnew form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 400px;
+  background: rgba(0, 0, 0, 0.836);
+  color: #ffffff;
+  border-radius: 36px;
+  font-size: 22px;
+  position: relative;
+}
+.addnew input {
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 20px;
+  border-bottom:2px solid rgb(156, 156, 228) ;
+  padding: 10px;
+}
+.addnew button {
+  background: none;
+  border: 3px solid green;
+  outline: none;
+  color: #ffffff;
+  margin: 10px 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.addnew .close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/task.css" />
+    <script>
+      let tasks = <%-JSON.stringify(data)%>
+    </script>
+    <script defer src='/js/task.js'></script>
+    <link rel="shortcut icon" href="https://elliot.sirv.com/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <h1><%= data.title %></h1>
+    </header>
+    <form>
+      <input required type="text" class="todo-input" />
+      <button class="todo-button" type="submit">
+        <i class="fas fa-plus-square"></i>
+      </button>
+      <button id="save">SAVE <i class="fas fa-save"></i></button>
+    </form>
+    <div class="todo-container">
+      <ul class="todo-list">
+        <% data.tasks.forEach(e => { %>
+          <div class="todo <%= Object.values(e) %>">
+            <li class="todo-item"><%= Object.keys(e) %></li><button class="complete-btn"><i class="fas fa-check"></i></button><button
+              class="trash-btn"><i class="fas fa-trash"></i></button>
+          </div>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>
