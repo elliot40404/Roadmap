@@ -8,11 +8,14 @@ app.use(express.urlencoded({ extended: false, limit: '150mb' }));
 const fs = require('fs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.json());
+
+//  * VARIABLES
+let login = false;
 let header = '';
 let redir = false;
 const fn = __dirname + '/projects/projects.json'
 
-// * dir check
+// * CHECKS
 
 if (fs.existsSync('projects')) {
     if (fs.existsSync(fn)) {
@@ -41,9 +44,17 @@ function check(req, res, next) {
     }
 }
 
+function checklogin(req, res, next) {
+    if (login) {
+        next()
+    } else {
+        res.redirect('/login')
+    }
+}
+
 //  * GET
 
-app.get('/', async (req, res) => {
+app.get('/', checklogin, async (req, res) => {
     if (fs.existsSync(fn)) {
         fs.readFile(fn, 'utf8', async (err, file) => {
             if (err) {
@@ -76,6 +87,10 @@ app.get('/task', check, (req, res) => {
     });
 });
 
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
 // * API
 
 app.get('/api/projects', (req, res) => {
@@ -97,6 +112,22 @@ app.get('/api/projects', (req, res) => {
 });
 
 //  * POST
+
+app.post('/login', (req, res) => {
+    const user = req.body.user
+    const pass = req.body.pass
+    if (user === 'avishek8' && pass === 'Avis5hek1991') {
+        login = true
+        res.redirect('/');
+    } else {
+        res.sendStatus(401);
+    }
+});
+
+app.post('/logout', (req, res) => {
+    login = false
+    res.sendStatus(204);
+});
 
 app.post('/save', (req, res) => {
     const writeData = req.body //JSON.stringify(req.body)

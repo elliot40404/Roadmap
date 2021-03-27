@@ -71,3 +71,9 @@ document.getElementById('addnew').addEventListener('click', (e) => {
         document.getElementById('addnew').style.display = 'none';
     }
 });
+
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    fetch('/logout', {"method": 'POST'})
+    e.returnValue = '';
+});
