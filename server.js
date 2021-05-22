@@ -116,7 +116,7 @@ app.get('/api/projects', (req, res) => {
 app.post('/login', (req, res) => {
     const user = req.body.user
     const pass = req.body.pass
-    if (user === 'avishek8' && pass === 'Avis5hek1991') {
+    if (user === 'admin' && pass === 'admin') {
         login = true
         res.redirect('/');
     } else {
